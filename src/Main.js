@@ -23,11 +23,7 @@ import { BrowserRouter } from 'react-router-dom';
 require("@solana/wallet-adapter-react-ui/styles.css");
 const Main = () => {
 
-    const [network, setNetwork] = useState(WalletAdapterNetwork.Mainnet);
-    const [variant, setVariant] = useState("success");
-    const [title, setTitle] = useState("Mainnet");
-
-
+    const network = WalletAdapterNetwork.Devnet
     useEffect(() => {
         console.log(`Network changed ${network}`);
     }, [network]);
@@ -54,7 +50,7 @@ const Main = () => {
           <WalletModalProvider>
             <Fragment>
               <BrowserRouter>
-                <App connection={endpoint} variant={variant.toLowerCase()} cluster={title} />
+                <App />
               </BrowserRouter>
             </Fragment>
           </WalletModalProvider>

@@ -6,7 +6,6 @@ const Home = () => {
 
   return (
     <div>
-      here
       <Bids title="Hot Bids"  />
     </div>
   );

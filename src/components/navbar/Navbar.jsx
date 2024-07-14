@@ -12,26 +12,19 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import { WalletMultiButton, } from "@solana/wallet-adapter-react-ui";
 
 const Menu = () => (
   <>
      <Link to="/"><p>Explore</p> </Link>
-     <p>My Items</p>
-    
+     <Link to="/myitems"><p>My Items</p></Link>
   </>
  )
 
  const Navbar = () => {
   const [toggleMenu,setToggleMenu] = useState(false)
-   const [user,setUser] = useState(false)
-   const [network, setNetwork] = useState(WalletAdapterNetwork.Mainnet);
+  const [network, setNetwork] = useState(WalletAdapterNetwork.Mainnet);
 
-  const handleLogout = () => {
-    setUser(false);
-  }
-  const handleLogin = () => {
-    setUser(true);
-  }
 
   return (
     <div className='navbar'>
@@ -42,9 +35,12 @@ const Menu = () => (
             <h1>CryptoKet</h1>
           </Link>
         </div>
+        <div className="navbar-links_container">
+          <Menu />
+        </div>
       </div>
       <div className="navbar-sign">
-        <button type='button' className='secondary-btn'>Connect</button>
+        <WalletMultiButton className="wallet-btn"/>
       </div>
       <div className="navbar-menu">
         {toggleMenu ? 
@@ -53,7 +49,7 @@ const Menu = () => (
         {toggleMenu && (
           <div className="navbar-menu_container scale-up-center" >
             <div className="navbar-menu_container-links-sign">
-              <button type='button' className='secondary-btn'>Connect</button>
+              <WalletMultiButton className="wallet-btn"/>
             </div>
           </div>
         )}
