@@ -1,13 +1,15 @@
 import React from 'react';
-import {Bids, Header, } from '../../components'
+import { Bids } from '../../components'
 
 
 const Home = () => {
 
-  return <div>
-   <Header />
-   <Bids title="Hot Bids"  />
-  </div>;
+  return (
+    <div>
+      here
+      <Bids title="Hot Bids"  />
+    </div>
+  );
 };
 
 export default Home;
